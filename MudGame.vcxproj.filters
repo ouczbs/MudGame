@@ -3,43 +3,103 @@
   <ItemGroup>
     <Filter Include="源文件">
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="头文件">
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
     <Filter Include="资源文件">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\Engine">
+      <UniqueIdentifier>{cc8aaa18-39e7-46ab-a855-dbfd8ee668f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Engine">
+      <UniqueIdentifier>{50993f99-aed0-47ab-bc48-f2f3183de00e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\Game">
+      <UniqueIdentifier>{6aca78db-ce30-4dad-adf1-3c4fc2ab463f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\Game">
+      <UniqueIdentifier>{d0deb5f5-f9ac-46e1-b282-d4ca27ef9a6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Private\UActorObject.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UComponent.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UEventDispatcher.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UGameMap.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UMessage.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UObject.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\Utility.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Private\UVector.cpp">
+      <Filter>源文件\Engine</Filter>
+    </ClCompile>
     <ClCompile Include="MudGame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="UMessageManager.cpp">
-      <Filter>源文件</Filter>
+    <ClCompile Include="Game\Private\UMessageManager.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\UPlayer.cpp">
+      <Filter>源文件\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Private\UWorld.cpp">
+      <Filter>源文件\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="engine\UActorObject.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\Const.h">
+      <Filter>头文件\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\UComponent.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\UActorObject.h">
+      <Filter>头文件\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\UGameMap.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\UComponent.h">
+      <Filter>头文件\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\UObject.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\UEventDispatcher.h">
+      <Filter>头文件\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="engine\UVector.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\UGameMap.h">
+      <Filter>头文件\Engine</Filter>
     </ClInclude>
-    <ClInclude Include="UMessageManager.h">
-      <Filter>头文件</Filter>
+    <ClInclude Include="Engine\Public\UMessage.h">
+      <Filter>头文件\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Public\UObject.h">
+      <Filter>头文件\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Public\Utility.h">
+      <Filter>头文件\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Public\UVector.h">
+      <Filter>头文件\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\UMessageManager.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\UWorld.h">
+      <Filter>头文件\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Public\UPlayer.h">
+      <Filter>头文件\Game</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
