@@ -8,4 +8,7 @@ public:
 	void setOwner(UActorObject *_owner) {
 		owner = _owner;
 	}
+	UActorObject *getOwner() {
+		return owner;
+	}
 };

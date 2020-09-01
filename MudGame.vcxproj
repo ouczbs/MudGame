@@ -147,6 +147,7 @@
     <ClInclude Include="engine\UGameMap.h" />
     <ClInclude Include="engine\UObject.h" />
     <ClInclude Include="engine\UVector.h" />
+    <ClInclude Include="UMessageManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
