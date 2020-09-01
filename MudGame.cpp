@@ -2,7 +2,10 @@
 //
 
 #include <iostream>
-
+int fun()
+{
+	
+} 
 int main()
 {
     std::cout << "Hello World!\n";
