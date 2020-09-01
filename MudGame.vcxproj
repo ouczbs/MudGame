@@ -140,6 +140,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MudGame.cpp" />
+    <ClCompile Include="UMessageManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\UActorObject.h" />
