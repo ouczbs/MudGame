@@ -5,6 +5,7 @@
 int fun()
 {
 	int a; 
+	int b;
 } 
 int main()
 {
