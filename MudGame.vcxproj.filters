@@ -19,4 +19,21 @@
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine\UActorObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\UComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\UGameMap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\UObject.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="engine\UVector.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

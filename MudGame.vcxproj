@@ -141,6 +141,13 @@
   <ItemGroup>
     <ClCompile Include="MudGame.cpp" />
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="engine\UActorObject.h" />
+    <ClInclude Include="engine\UComponent.h" />
+    <ClInclude Include="engine\UGameMap.h" />
+    <ClInclude Include="engine\UObject.h" />
+    <ClInclude Include="engine\UVector.h" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
