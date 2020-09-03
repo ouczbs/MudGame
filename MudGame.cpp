@@ -5,7 +5,7 @@
 int fun()
 {
 	int a; 
-	int b;
+	 int b;
 } 
 int main()
 {
