@@ -12,6 +12,11 @@ public:
 		this->name = name;
 		this->id = id;
 	}
+
+	UObject() {
+
+	}
+
 	void setName(string name) {
 		this->name = name;
 	}

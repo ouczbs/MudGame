@@ -2,9 +2,11 @@
 #include "UVector.h"
 #include "UObject.h"
 #include "UComponent.h"
-#include<list>
+#include <list>
 using namespace std;
 class UComponent;
+
+
 class UActorObject : public UObject {
 
 private:
@@ -19,14 +21,8 @@ public:
 	void update() {
 
 	};
-	void addComponent(UComponent component) {
-		component.setOwner(this);
-		componentList.push_back(component);
-	};
-	void removeComponent(UComponent component) {
-		component.setOwner(nullptr);
-		componentList.remove(component);
-	};
+	void addComponent(UComponent component);
+	void removeComponent(UComponent component);
 	UVector getPos() {
 		return pos;
 	};

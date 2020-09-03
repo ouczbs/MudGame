@@ -140,7 +140,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="MudGame.cpp" />
-    <ClCompile Include="UMessageManager.cpp" />
+    <ClCompile Include="UActorObject.cpp" />
+    <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\UActorObject.h" />
@@ -149,6 +150,7 @@
     <ClInclude Include="engine\UObject.h" />
     <ClInclude Include="engine\UVector.h" />
     <ClInclude Include="UMessageManager.h" />
+    <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

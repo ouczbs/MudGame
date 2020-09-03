@@ -2,13 +2,13 @@
 #include "UVector.h"
 #include "UObject.h"
 #include "UComponent.h"
-#include<list>
+#include <list>
 #include <string>
 
 using namespace std;
 
 string parseName(string name, int cell) {
-	int size = name.length;
+	int size = name.length();
 	if (size == cell)
 		return name;
 	string res = "";
@@ -19,7 +19,7 @@ string parseName(string name, int cell) {
 	}
 	else {
 		for (int i = 0; i < cell; i++)
-			res.append(name[i]);
+			res[i]==name[i];
 	}
 	return res;
 };
@@ -33,7 +33,7 @@ private:
 public:
 	UGameMap(int x, int y) {
 		map =  (int**)malloc(sizeof(int*) * x);
-		for (i = 0; i < x; i++)
+		for (int i = 0; i < x; i++)
 			map[i] = (int*)malloc(sizeof(int) * y);
 		row = x; 
 		col = y;
@@ -54,7 +54,7 @@ public:
 		map[pos.x][pos.y] = actor.getId();
 	};
 	void removeActor(UActorObject actor) {
-		actorList.remove(actor);
+		//actorList.remove(actor);
 		UVector pos = actor.getPos();
 		if (!checkMap(pos.x, pos.y))
 			return;
@@ -64,7 +64,7 @@ public:
 		for (auto actor = actorList.begin(); actor != actorList.end();) {
 			UVector pos = actor->getPos();
 			if (pos.x == x && pos.y == y)
-				return actor;
+				return &*actor;
 		}
 	}
 	bool isEmpty( int x , int y) {
@@ -75,4 +75,5 @@ public:
 	void render() {
 
 	}
+
 };
