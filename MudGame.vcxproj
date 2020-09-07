@@ -141,6 +141,7 @@
   <ItemGroup>
     <ClCompile Include="MudGame.cpp" />
     <ClCompile Include="UActorObject.cpp" />
+    <ClCompile Include="UMovementComponent.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -149,7 +150,13 @@
     <ClInclude Include="engine\UGameMap.h" />
     <ClInclude Include="engine\UObject.h" />
     <ClInclude Include="engine\UVector.h" />
+    <ClInclude Include="monster.h" />
+    <ClInclude Include="NPC.h" />
+    <ClInclude Include="player.h" />
+    <ClInclude Include="role.h" />
+    <ClInclude Include="UFightComponent.h" />
     <ClInclude Include="UMessageManager.h" />
+    <ClInclude Include="UMovementComponent.h" />
     <ClInclude Include="Utility.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

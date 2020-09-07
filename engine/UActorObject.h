@@ -21,7 +21,11 @@ public:
 	void update() {
 
 	};
-	void addComponent(UComponent component);
+	void setPos(int x, int y) {
+		pos.x = x;
+		pos.y = y;
+	}
+	void addComponent(UComponent &component);
 	void removeComponent(UComponent component);
 	UVector getPos() {
 		return pos;

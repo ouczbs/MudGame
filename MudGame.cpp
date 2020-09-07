@@ -4,11 +4,52 @@
 #include <iostream>
 #include "engine\UActorObject.h"
 #include "engine\UGameMap.h"
- 
+#include"player.h";
+#include"UMovementComponent.h"
 int main()
 {
 	UGameMap Map(10, 10);
-	UObject player("songzetao", 1);
+	//UObject player("songzetao", 1);
+	Hero player;
+	player.setName("songzetao");
+	player.setPos(2, 3);
+	player.setId(1);
+	Map.addActor(&player);
+	Map.render();
+	UMovementComponent playerMCom;
+	player.addComponent(playerMCom);
+	cout << endl;
+	while (1) {
+		char key;
+		cin >> key;
+		if (key == 'w') {
+			playerMCom.MoveForward();
+			Map.update();
+			Map.render();
+		}
+		else if (key == 's') {
+			playerMCom.MoveBack();
+			Map.update();
+			Map.render();
+		}
+		else if (key == 'a') {
+			playerMCom.MoveLeft();
+			Map.update();
+			Map.render();
+		}
+		else if (key == 'd') {
+			playerMCom.MoveRight();
+			Map.update();
+			Map.render();
+		}
+		else {
+			cout << "输入错误，请重新输入！";
+		}
+			
+	}
+	//playerMCom.MoveRight();
+	//cout << player.getPos().x << player.getPos().y << endl;
+	
 	getchar();
 }
 //

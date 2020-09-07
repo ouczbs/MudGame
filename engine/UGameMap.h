@@ -28,8 +28,7 @@ private:
 	int** map;
 	int row;
 	int col;
-	list<UActorObject> actorList;
-
+	list<UActorObject *> actorList;
 public:
 	UGameMap(int x, int y) {
 		map =  (int**)malloc(sizeof(int*) * x);
@@ -37,21 +36,35 @@ public:
 			map[i] = (int*)malloc(sizeof(int) * y);
 		row = x; 
 		col = y;
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				map[i][j]=0;
+			}
+		}
 	};
 	bool checkMap(int x, int y) {
 		return x >= 0 && y >= 0 && x < row&& y < col;
 	};
 	void update() {
-		for (auto actor = actorList.begin(); actor != actorList.end();) {
-			actor->update();
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				map[i][j]=0;
+			}
+		}
+		//memset(map, 0, sizeof(int) * row * col);
+		for (auto actor = actorList.begin(); actor != actorList.end(); actor++) {
+			UVector tempPos;
+			tempPos=(*actor)->getPos();
+			//cout << tempPos.x << tempPos.y << endl;
+		map[tempPos.x][tempPos.y] = (*actor)->getId();
 		}
 	};
-	void addActor(UActorObject actor) {
+	void addActor(UActorObject *actor) {
 		actorList.push_back(actor);
-		UVector pos = actor.getPos();
+		UVector pos = actor->getPos();
 		if (!checkMap(pos.x, pos.y))
 			return;
-		map[pos.x][pos.y] = actor.getId();
+		map[pos.x][pos.y] = actor->getId();
 	};
 	void removeActor(UActorObject actor) {
 		//actorList.remove(actor);
@@ -60,20 +73,25 @@ public:
 			return;
 		map[pos.x][pos.y] = 0;
 	};
-	UActorObject* searchActor(int x , int y) {
-		for (auto actor = actorList.begin(); actor != actorList.end();) {
+	/*UActorObject* searchActor(int x , int y) {
+		for (auto actor = actorList.begin(); actor != actorList.end();actor++) {
 			UVector pos = actor->getPos();
 			if (pos.x == x && pos.y == y)
 				return &*actor;
 		}
-	}
+	}*/
 	bool isEmpty( int x , int y) {
 		if (!checkMap(x, y))
 			return false;
 		return map[x][y] == 0;
 	}
 	void render() {
-
+		for (int i = 0; i < row; i++) {
+			for (int j = 0; j < col; j++) {
+				cout << map[i][j] << " ";
+			}
+			cout << endl;
+		}
 	}
 
 };

@@ -24,6 +24,9 @@
     <ClCompile Include="Utility.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="UMovementComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\UActorObject.h">
@@ -45,6 +48,24 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Utility.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="role.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NPC.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="monster.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UFightComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UMovementComponent.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
