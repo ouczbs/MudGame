@@ -27,6 +27,15 @@
     <ClCompile Include="UMovementComponent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="..\UThing\Thing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UThing\Heal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="..\UThing\Weapon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="engine\UActorObject.h">
@@ -66,6 +75,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="UMovementComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UThing\Heal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UThing\Thing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UThing\Weapon.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

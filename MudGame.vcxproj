@@ -139,12 +139,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\UThing\Heal.cpp" />
+    <ClCompile Include="..\UThing\Thing.cpp" />
+    <ClCompile Include="..\UThing\Weapon.cpp" />
     <ClCompile Include="MudGame.cpp" />
     <ClCompile Include="UActorObject.cpp" />
     <ClCompile Include="UMovementComponent.cpp" />
     <ClCompile Include="Utility.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\UThing\Heal.h" />
+    <ClInclude Include="..\UThing\Thing.h" />
+    <ClInclude Include="..\UThing\Weapon.h" />
     <ClInclude Include="engine\UActorObject.h" />
     <ClInclude Include="engine\UComponent.h" />
     <ClInclude Include="engine\UGameMap.h" />
