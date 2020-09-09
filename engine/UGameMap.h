@@ -7,22 +7,6 @@
 
 using namespace std;
 
-string parseName(string name, int cell) {
-	int size = name.length();
-	if (size == cell)
-		return name;
-	string res = "";
-	if (size < cell) {
-		for (int i = size; i < cell; i++)
-			res.append("");
-		res.append(name);
-	}
-	else {
-		for (int i = 0; i < cell; i++)
-			res[i]==name[i];
-	}
-	return res;
-};
 class UGameMap {
 private:
 	int** map;
@@ -30,68 +14,13 @@ private:
 	int col;
 	list<UActorObject *> actorList;
 public:
-	UGameMap(int x, int y) {
-		map =  (int**)malloc(sizeof(int*) * x);
-		for (int i = 0; i < x; i++)
-			map[i] = (int*)malloc(sizeof(int) * y);
-		row = x; 
-		col = y;
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				map[i][j]=0;
-			}
-		}
-	};
-	bool checkMap(int x, int y) {
-		return x >= 0 && y >= 0 && x < row&& y < col;
-	};
-	void update() {
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				map[i][j]=0;
-			}
-		}
-		//memset(map, 0, sizeof(int) * row * col);
-		for (auto actor = actorList.begin(); actor != actorList.end(); actor++) {
-			UVector tempPos;
-			tempPos=(*actor)->getPos();
-			//cout << tempPos.x << tempPos.y << endl;
-		map[tempPos.x][tempPos.y] = (*actor)->getId();
-		}
-	};
-	void addActor(UActorObject *actor) {
-		actorList.push_back(actor);
-		UVector pos = actor->getPos();
-		if (!checkMap(pos.x, pos.y))
-			return;
-		map[pos.x][pos.y] = actor->getId();
-	};
-	void removeActor(UActorObject actor) {
-		//actorList.remove(actor);
-		UVector pos = actor.getPos();
-		if (!checkMap(pos.x, pos.y))
-			return;
-		map[pos.x][pos.y] = 0;
-	};
-	/*UActorObject* searchActor(int x , int y) {
-		for (auto actor = actorList.begin(); actor != actorList.end();actor++) {
-			UVector pos = actor->getPos();
-			if (pos.x == x && pos.y == y)
-				return &*actor;
-		}
-	}*/
-	bool isEmpty( int x , int y) {
-		if (!checkMap(x, y))
-			return false;
-		return map[x][y] == 0;
-	}
-	void render() {
-		for (int i = 0; i < row; i++) {
-			for (int j = 0; j < col; j++) {
-				cout << map[i][j] << " ";
-			}
-			cout << endl;
-		}
-	}
+	UGameMap(int _row, int _col);
+	bool checkMap(int x, int y);
+	void update();
+	void addActor(UActorObject* actor);
+	UActorObject * searchActor(int x, int y);
+	void removeActor(UActorObject actor);
+	bool isEmpty(int x, int y);
+	void render();
 
 };

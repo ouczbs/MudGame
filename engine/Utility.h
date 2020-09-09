@@ -2,6 +2,7 @@
 #include <string>
 #include <sstream>
 #include <list>   
+
 using namespace std;
 
 string parseName(string name, int must_size);
@@ -14,5 +15,6 @@ inline bool listRemove(list<T> tList, T _t) {
 			return true;
 		}
 	};
+
 	return false;
 }

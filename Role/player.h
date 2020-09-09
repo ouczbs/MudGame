@@ -3,12 +3,10 @@
 
 class Hero :public role {
 public:
-	Hero() {
-		id = 1;
-	}
+
 private:
-	int gold_value;
-	int id;
+	int gold_value = 0;
+	int id = 0;
 	//Thing bag[10];
 	//Weapon equipment[2];
 };

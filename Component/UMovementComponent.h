@@ -1,6 +1,5 @@
 #pragma once
-#include"engine/UComponent.h"
-
+#include"../Engine/UComponent.h"
 class UMovementComponent :public UComponent {
 public:
 	void MoveForward();

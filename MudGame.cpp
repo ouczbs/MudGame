@@ -2,10 +2,22 @@
 //
 
 #include <iostream>
-#include "engine\UActorObject.h"
-#include "engine\UGameMap.h"
-#include"player.h";
-#include"UMovementComponent.h"
+#include "Engine/UActorObject.h"
+#include "Engine/UGameMap.h"
+#include "Role/player.h"
+#include "Component/UMovementComponent.h"
+/*
+#include "Game/Public/UWorld.h"
+int main()
+{
+	UWorld * world = new UWorld();
+	world->MessageManager = new UMessageManager();
+	world->MessageManager->Title.appendLine("欢迎进入游戏！！！");
+	world->EventDispatcher = new UEventDispatcher();
+	world->createMap("main", world->GameMap, world->Player);
+	world->run();
+}
+*/
 int main()
 {
 	UGameMap Map(10, 10);
@@ -50,7 +62,7 @@ int main()
 	//playerMCom.MoveRight();
 	//cout << player.getPos().x << player.getPos().y << endl;
 	
-	getchar();
+	//getchar();
 }
 //
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

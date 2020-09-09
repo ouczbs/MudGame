@@ -18,6 +18,44 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Component\UFightComponent.h" />
+    <ClInclude Include="Component\UMovementComponent.h" />
+    <ClInclude Include="Engine\Const.h" />
+    <ClInclude Include="Engine\UActorObject.h" />
+    <ClInclude Include="Engine\UComponent.h" />
+    <ClInclude Include="Engine\UEventDispatcher.h" />
+    <ClInclude Include="Engine\UGameMap.h" />
+    <ClInclude Include="Engine\UMessage.h" />
+    <ClInclude Include="Engine\UObject.h" />
+    <ClInclude Include="Engine\Utility.h" />
+    <ClInclude Include="Engine\UVector.h" />
+    <ClInclude Include="Role\monster.h" />
+    <ClInclude Include="Role\NPC.h" />
+    <ClInclude Include="Role\player.h" />
+    <ClInclude Include="Role\role.h" />
+    <ClInclude Include="Role\UPlayer.h" />
+    <ClInclude Include="System\UMessageManager.h" />
+    <ClInclude Include="UWorld.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Component\UMovementComponent.cpp" />
+    <ClCompile Include="Engine\UActorObject.cpp" />
+    <ClCompile Include="Engine\UComponent.cpp" />
+    <ClCompile Include="Engine\UEventDispatcher.cpp" />
+    <ClCompile Include="Engine\UGameMap.cpp" />
+    <ClCompile Include="Engine\UMessage.cpp" />
+    <ClCompile Include="Engine\UObject.cpp" />
+    <ClCompile Include="Engine\Utility.cpp" />
+    <ClCompile Include="Engine\UVector.cpp" />
+    <ClCompile Include="MudGame.cpp" />
+    <ClCompile Include="Role\UPlayer.cpp" />
+    <ClCompile Include="System\UMessageManager.cpp" />
+    <ClCompile Include="UWorld.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="_" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -138,33 +176,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="..\UThing\Heal.cpp" />
-    <ClCompile Include="..\UThing\Thing.cpp" />
-    <ClCompile Include="..\UThing\Weapon.cpp" />
-    <ClCompile Include="MudGame.cpp" />
-    <ClCompile Include="UActorObject.cpp" />
-    <ClCompile Include="UMovementComponent.cpp" />
-    <ClCompile Include="Utility.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\UThing\Heal.h" />
-    <ClInclude Include="..\UThing\Thing.h" />
-    <ClInclude Include="..\UThing\Weapon.h" />
-    <ClInclude Include="engine\UActorObject.h" />
-    <ClInclude Include="engine\UComponent.h" />
-    <ClInclude Include="engine\UGameMap.h" />
-    <ClInclude Include="engine\UObject.h" />
-    <ClInclude Include="engine\UVector.h" />
-    <ClInclude Include="monster.h" />
-    <ClInclude Include="NPC.h" />
-    <ClInclude Include="player.h" />
-    <ClInclude Include="role.h" />
-    <ClInclude Include="UFightComponent.h" />
-    <ClInclude Include="UMessageManager.h" />
-    <ClInclude Include="UMovementComponent.h" />
-    <ClInclude Include="Utility.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
