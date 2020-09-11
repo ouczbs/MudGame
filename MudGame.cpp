@@ -6,63 +6,33 @@
 #include "Engine/UGameMap.h"
 #include "Role/player.h"
 #include "Component/UMovementComponent.h"
-/*
-#include "Game/Public/UWorld.h"
+
+void makeMainScene(string key, string cmd) {
+	UGameMap * Map = new UGameMap(10, 10);
+	Hero *player = new Hero();
+	player->setName("songzetao");
+	player->setPos(2, 3);
+	player->setId(1);
+	UMovementComponent *playerMCom = new UMovementComponent();
+	player->addComponent(playerMCom);
+
+	Map->addActor(player);
+
+	world->GameMap = Map;
+	world->Player = player;
+}
 int main()
 {
-	UWorld * world = new UWorld();
+	world->EventDispatcher = new UEventDispatcher();
+	world->MessageManager = new UMessageManager();
 	world->MessageManager = new UMessageManager();
 	world->MessageManager->Title.appendLine("欢迎进入游戏！！！");
-	world->EventDispatcher = new UEventDispatcher();
-	world->createMap("main", world->GameMap, world->Player);
+
+	world->addScene("main", makeMainScene);
+
+	world->makeScene("main");
+
 	world->run();
-}
-*/
-int main()
-{
-	UGameMap Map(10, 10);
-	//UObject player("songzetao", 1);
-	Hero player;
-	player.setName("songzetao");
-	player.setPos(2, 3);
-	player.setId(1);
-	Map.addActor(&player);
-	Map.render();
-	UMovementComponent playerMCom;
-	player.addComponent(playerMCom);
-	cout << endl;
-	while (1) {
-		char key;
-		cin >> key;
-		if (key == 'w') {
-			playerMCom.MoveForward();
-			Map.update();
-			Map.render();
-		}
-		else if (key == 's') {
-			playerMCom.MoveBack();
-			Map.update();
-			Map.render();
-		}
-		else if (key == 'a') {
-			playerMCom.MoveLeft();
-			Map.update();
-			Map.render();
-		}
-		else if (key == 'd') {
-			playerMCom.MoveRight();
-			Map.update();
-			Map.render();
-		}
-		else {
-			cout << "输入错误，请重新输入！";
-		}
-			
-	}
-	//playerMCom.MoveRight();
-	//cout << player.getPos().x << player.getPos().y << endl;
-	
-	//getchar();
 }
 //
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单

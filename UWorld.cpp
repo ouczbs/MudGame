@@ -11,7 +11,7 @@ void UWorld::render()
 void UWorld::update()
 {
 	if (nextGameMap != "") {
-		createMap(nextGameMap, GameMap, Player);
+		makeScene(nextGameMap);
 		nextGameMap = "";
 	}
 	if (GameMap != nullptr) {
@@ -34,9 +34,5 @@ void UWorld::run()
 	}
 }
 
-bool UWorld::createMap(string map, UGameMap * gameMap, UPlayer * player)
-{
-	//"..."
 
-	return false;
-}
+UWorld * world =new UWorld();

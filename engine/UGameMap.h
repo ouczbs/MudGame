@@ -15,12 +15,12 @@ private:
 	list<UActorObject *> actorList;
 public:
 	UGameMap(int _row, int _col);
-	bool checkMap(int x, int y);
-	void update();
-	void addActor(UActorObject* actor);
-	UActorObject * searchActor(int x, int y);
-	void removeActor(UActorObject actor);
-	bool isEmpty(int x, int y);
-	void render();
+	virtual bool checkMap(int x, int y);
+	virtual void update();
+	virtual void addActor(UActorObject* actor);
+	virtual UActorObject * searchActor(int x, int y);
+	virtual void removeActor(UActorObject actor);
+	virtual bool isEmpty(int x, int y);
+	virtual void render();
 
 };

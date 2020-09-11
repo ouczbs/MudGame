@@ -1,7 +1,7 @@
 #pragma once
 #include"role.h"
 
-class Hero :public role {
+class Hero :public Role {
 public:
 
 private:

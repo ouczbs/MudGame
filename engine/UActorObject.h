@@ -10,7 +10,7 @@ class UComponent;
 class UActorObject : public UObject {
 
 private:
-	list<UComponent> componentList;
+	list<UComponent*> componentList;
 	UVector pos;
 public:
 	UActorObject() {};
@@ -18,15 +18,15 @@ public:
 		pos.x = x;
 		pos.y = y;
 	};
-	void update() {
+	virtual void update() {
 
 	};
 	void setPos(int x, int y) {
 		pos.x = x;
 		pos.y = y;
 	}
-	void addComponent(UComponent &component);
-	void removeComponent(UComponent component);
+	virtual void addComponent(UComponent *component);
+	virtual void removeComponent(UComponent *component);
 	UVector getPos() {
 		return pos;
 	};

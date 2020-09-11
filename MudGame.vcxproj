@@ -22,6 +22,7 @@
     <ClInclude Include="Component\UFightComponent.h" />
     <ClInclude Include="Component\UMovementComponent.h" />
     <ClInclude Include="Engine\Const.h" />
+    <ClInclude Include="Engine\Delegate.h" />
     <ClInclude Include="Engine\UActorObject.h" />
     <ClInclude Include="Engine\UComponent.h" />
     <ClInclude Include="Engine\UEventDispatcher.h" />
@@ -34,7 +35,6 @@
     <ClInclude Include="Role\NPC.h" />
     <ClInclude Include="Role\player.h" />
     <ClInclude Include="Role\role.h" />
-    <ClInclude Include="Role\UPlayer.h" />
     <ClInclude Include="System\UMessageManager.h" />
     <ClInclude Include="UWorld.h" />
   </ItemGroup>
@@ -49,7 +49,6 @@
     <ClCompile Include="Engine\Utility.cpp" />
     <ClCompile Include="Engine\UVector.cpp" />
     <ClCompile Include="MudGame.cpp" />
-    <ClCompile Include="Role\UPlayer.cpp" />
     <ClCompile Include="System\UMessageManager.cpp" />
     <ClCompile Include="UWorld.cpp" />
   </ItemGroup>

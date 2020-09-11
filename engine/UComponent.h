@@ -5,6 +5,7 @@ class UComponent {
 private:
 	UActorObject * owner;
 public:
-	void setOwner(UActorObject* _owner);
-	UActorObject* getOwner();
+	virtual void setOwner(UActorObject* _owner);
+	virtual void init();
+	virtual UActorObject* getOwner();
 };

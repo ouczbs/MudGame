@@ -1,6 +1,6 @@
 #pragma once
 #include"../Engine/UActorObject.h"
-class role:public UActorObject {
+class Role:public UActorObject {
 public:
 	/*role(int nattack_value, int ndefence_value, int nblood_value) {
 		attack_value = nattack_value;

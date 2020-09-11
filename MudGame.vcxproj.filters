@@ -60,13 +60,13 @@
     <ClInclude Include="Role\role.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="Role\UPlayer.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="Component\UFightComponent.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Component\UMovementComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine\Delegate.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
@@ -102,9 +102,6 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="System\UMessageManager.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Role\UPlayer.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Component\UMovementComponent.cpp">
