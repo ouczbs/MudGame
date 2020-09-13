@@ -73,5 +73,5 @@ void TalkManager::Talking(string key, string cmd)
 	if (id == 0 || choice->size() < id)
 		return;
 	Quest* quest = findQuest((*choice)[id - 1]);
-	showTalking(quest);
+	questMap->insert(pair<int, Quest*>(quest->npcid , quest));
 }

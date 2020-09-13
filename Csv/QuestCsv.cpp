@@ -15,7 +15,7 @@ map<int, Quest*>* QuestCsv::makeAllQuestMap()
 			quest->next = safeStoi(vs[next_idx]);
 		int choice_idx = getIndex("choice");
 		if (choice_idx != -1) {
-			quest->choice = conv(split(vs[choice_idx], ',') , true);
+			quest->choice = conv(split(vs[choice_idx], ',' ) , true);
 		}
 		int npcid_idx = getIndex("npcid");
 		if (npcid_idx != -1)

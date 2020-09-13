@@ -23,17 +23,25 @@ string parseName(string name, int must_size) {
 vector<string>* split(string text, char separated, char domin)
 {
 	vector<string>* res = new vector<string>();
-	int s = 0;;
-	bool isInDomin = false;
-	for (int i = 0, l = text.length(); i < l; i++) {
+	int s = 0, l = text.length();
+	bool isInDomin = false , hasDomin = false;
+	for (int i = 0; i < l; i++) {
 		if (text[i] == separated && !isInDomin) {
-			res->push_back(text.substr(s, i - s));
+			if(hasDomin)
+				res->push_back(text.substr(s + 1, i - s - 2));
+			else
+				res->push_back(text.substr(s, i - s));
+			hasDomin = false;
 			s = i + 1;
 		}
 		else if (text[i] == domin) {
 			isInDomin = !isInDomin;
+			if(isInDomin)
+				hasDomin = true;
 		}
 	}
+	if (s < l || text[l-1] == separated)
+		res->push_back(text.substr(s, l - s));
 	return res;
 }
 
