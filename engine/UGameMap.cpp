@@ -22,31 +22,33 @@ bool UGameMap::checkMap(int x, int y)
 }
 
 void UGameMap::addActor(UActorObject *actor) {
-	actorList.push_back(actor);
+	actorList->push_back(actor);
 	UVector pos = actor->getPos();
 	if (!checkMap(pos.x, pos.y))
 		return;
 	map[pos.x][pos.y] = actor->getId();
 };
-void UGameMap::removeActor(UActorObject actor) {
-	//actorList.remove(actor);
-	UVector pos = actor.getPos();
-	if (!checkMap(pos.x, pos.y))
-		return;
-	map[pos.x][pos.y] = 0;
+void UGameMap::removeActor(UActorObject *actor) {
+	removeList->push_back(actor);
 };
 
 void UGameMap::update()
 {
-	for (auto actor = actorList.begin(); actor != actorList.end(); actor++) {
-		(*actor)->update();
+	for (auto it = actorList->begin(); it != actorList->end(); it++) {
+		(*it)->update();
 	}
+	for (auto it = removeList->begin(); it != removeList->end(); it++) {
+		listRemove(actorList , *it);
+		(*it)->destroy();
+	}
+	removeList->clear();
+	
 	for (int i = 0; i < row; i++) {
 		memset(map[i], 0, sizeof(int) * col);
 	}
-	for (auto actor = actorList.begin(); actor != actorList.end(); actor++) {
-		UVector tempPos = (*actor)->getPos();
-		map[tempPos.x][tempPos.y] = (*actor)->getId();
+	for (auto it = actorList->begin(); it != actorList->end(); it++) {
+		UVector tempPos = (*it)->getPos();
+		map[tempPos.x][tempPos.y] = (*it)->getId();
 	}
 }
 void UGameMap::render()
@@ -60,7 +62,7 @@ void UGameMap::render()
 	}
 	*/
 	stringstream out , axis;
-	out << parseName("", c_map_cell_size);
+	out << parseName("", c_map_left_size);
 	for (int i = 0; i < row; ++i) {
 		axis << "y" << i;
 		out << c_map_color_head << parseName(axis.str(), c_map_cell_size) << c_map_color_tail;
@@ -69,7 +71,7 @@ void UGameMap::render()
 	for (int i = 0; i < row; ++i) {
 		out << "\n";
 		axis << "x" << i;
-		out << c_map_color_head <<  parseName(axis.str() , c_map_cell_size) << c_map_color_tail;
+		out << c_map_color_head <<  parseName(axis.str() , c_map_left_size) << c_map_color_tail;
 		axis.str("");
 		int * map_col = map[i];
 		UActorObject * actor;
@@ -95,10 +97,10 @@ bool UGameMap::isEmpty(int x, int y)
 
 UActorObject * UGameMap::searchActor(int x, int y)
 {
-	for (auto actor = actorList.begin(); actor != actorList.end(); actor++) {
-		UVector pos = (*actor)->getPos();
+	for (auto it = actorList->begin(); it != actorList->end(); it++) {
+		UVector pos = (*it)->getPos();
 		if (pos.x == x && pos.y == y) {
-			return *actor;
+			return *it;
 		}
 	}
 	return nullptr;

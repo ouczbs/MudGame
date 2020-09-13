@@ -69,6 +69,39 @@
     <ClInclude Include="Engine\Delegate.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Csv\Csv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Csv\QuestCsv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="System\UTalkManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="thing\Heal.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="thing\Thing.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="thing\Weapon.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\UbagComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UI\Ui.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="System\UIManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\UMeshComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\UTalkComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\UActorObject.cpp">
@@ -105,6 +138,33 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Component\UMovementComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Csv\Csv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Csv\QuestCsv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="System\UTalkManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thing\Heal.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thing\Thing.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thing\Weapon.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="System\UIManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\UMeshComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\UTalkComponent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

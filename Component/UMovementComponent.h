@@ -10,4 +10,5 @@ public:
 	void MoveLeft(string key, string cmd);
 	void MoveRight(string key, string cmd);
 
+	void update();
 };

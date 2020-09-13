@@ -15,39 +15,48 @@ void UMovementComponent::init()
 void UMovementComponent::MoveForward(string key , string cmd) {
 	UVector tempPos;
 	tempPos= this->getOwner()->getPos();
-	//cout << tempPos.x << tempPos.y << endl;
 	tempPos.x-=1;
 	tempPos.y;
-	//cout<< tempPos.x << tempPos.y << endl;
-	this->getOwner()->setPos(tempPos.x, tempPos.y);
+	if (world->GameMap->checkMap(tempPos.x, tempPos.y))
+		this->getOwner()->setPos(tempPos.x, tempPos.y);
+	else
+		world->MessageManager->Error.appendLine("超出地图范围，无法移动");
 }
 
 void UMovementComponent::MoveBack(string key, string cmd) {
 	UVector tempPos;
 	tempPos = this->getOwner()->getPos();
-	//cout << tempPos.x << tempPos.y << endl;
 	tempPos.x += 1;
 	tempPos.y;
-	//cout << tempPos.x << tempPos.y << endl;
-	this->getOwner()->setPos(tempPos.x, tempPos.y);
+	if (world->GameMap->checkMap(tempPos.x, tempPos.y))
+		this->getOwner()->setPos(tempPos.x, tempPos.y);
+	else
+		world->MessageManager->Error.appendLine("超出地图范围，无法移动");
 }
 
 void UMovementComponent::MoveLeft(string key, string cmd) {
 	UVector tempPos;
 	tempPos = this->getOwner()->getPos();
-	//cout << tempPos.x << tempPos.y << endl;
 	tempPos.x;
 	tempPos.y-=1;
-	//cout << tempPos.x << tempPos.y << endl;
-	this->getOwner()->setPos(tempPos.x, tempPos.y);
+	if (world->GameMap->checkMap(tempPos.x, tempPos.y))
+		this->getOwner()->setPos(tempPos.x, tempPos.y);
+	else
+		world->MessageManager->Error.appendLine("超出地图范围，无法移动");
 }
 
 void UMovementComponent::MoveRight(string key, string cmd) {
 	UVector tempPos;
 	tempPos = this->getOwner()->getPos();
-	//cout << tempPos.x << tempPos.y << endl;
 	tempPos.x;
 	tempPos.y+=1;
-	//cout << tempPos.x << tempPos.y << endl;
-	this->getOwner()->setPos(tempPos.x, tempPos.y);
+	if (world->GameMap->checkMap(tempPos.x, tempPos.y))
+		this->getOwner()->setPos(tempPos.x, tempPos.y);
+	else
+		world->MessageManager->Error.appendLine("超出地图范围，无法移动");
+}
+
+void UMovementComponent::update()
+{
+	world->MessageManager->Tip.appendLine("请输入 w a s d 移动, 后加数字可移动多个单位");
 }

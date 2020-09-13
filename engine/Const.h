@@ -19,5 +19,7 @@ const string c_purple_tail = "\033[0m";
 
 static string c_map_color_head = c_red_head;
 static string c_map_color_tail = c_red_tail;
-static int c_map_cell_size = 3;
-static string c_map_cell = "|_____";
+
+static int c_map_left_size = 3;
+static int c_map_cell_size = 10;
+static string c_map_cell = "|_________";

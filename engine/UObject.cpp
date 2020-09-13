@@ -5,12 +5,16 @@ string UObject::getName()
 	return name;
 }
 
-UObject::UObject(string name, int id)
+UObject::UObject(string _name, int _id)
 {
+	name = _name;
+	id = _id;
 }
 
 UObject::UObject()
 {
+	name = "";
+	id = -1;
 }
 
 void UObject::setName(string _name)

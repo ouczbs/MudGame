@@ -17,20 +17,31 @@ void UMessageManager::showMessage(UMessage* message)
 
 void UMessageManager::showTitle()
 {
-	showMessage(&Title);
+	Title.show();
 }
 
 void UMessageManager::showTip()
 {
 	showMessage(&Tip);
+	Tip.appendLine("Tip:");
 }
 
 void UMessageManager::showInfo()
 {
 	showMessage(&Info);
+	Info.appendLine("Info:");
 }
 
 void UMessageManager::showError()
 {
 	showMessage(&Error);
+	Error.appendLine("Error:");
+}
+
+void UMessageManager::show()
+{
+	showTitle();
+	showTip();
+	showInfo();
+	showError();
 }

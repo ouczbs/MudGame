@@ -1,7 +1,7 @@
 #pragma once
 #include "role.h"
 #include <string>
-class NPC :public role {
+class NPC :public Role {
 public:
 	void speaking();
 	NPC() {

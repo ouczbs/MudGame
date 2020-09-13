@@ -34,6 +34,6 @@ public:
 	};
 	void dispatcherEvent(string key , string cmd);
 
-	void executeInput(string cmd);
+	void executeInput(string uiName , string cmd);
 };
 

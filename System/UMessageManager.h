@@ -17,4 +17,6 @@ public:
 	void showTip();
 	void showInfo();
 	void showError();
+
+	void show();
 };

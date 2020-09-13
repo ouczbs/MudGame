@@ -1,7 +1,7 @@
 #pragma once
 #include"role.h"
 
-class monster :public role {
+class monster :public Role {
 public:
 	monster() {
 		id = 2;

@@ -17,20 +17,21 @@ void UWorld::update()
 	if (GameMap != nullptr) {
 		GameMap->update();
 	}
+	if (TalkManager != nullptr) {
+		TalkManager->update();
+	}
 }
 
 void UWorld::run()
 {
 	Running = true;
 	while (Running) {
-		MessageManager->showTitle();
-		MessageManager->showTip();
+		system("cls");
+		MessageManager->show();
 		render();
 		string cmd; cin >> cmd;
-		EventDispatcher->executeInput(cmd);
+		EventDispatcher->executeInput(uiName , cmd);
 		update();
-		MessageManager->showInfo();
-		MessageManager->showError();
 	}
 }
 

@@ -13,3 +13,8 @@ UActorObject * UComponent::getOwner()
 {
 	return owner;
 }
+
+void UComponent::update()
+{
+
+}

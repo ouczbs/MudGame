@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -19,8 +19,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\UTalkComponent.h" />
+    <ClInclude Include="Component\UMeshComponent.h" />
+    <ClInclude Include="Component\UbagComponent.h" />
     <ClInclude Include="Component\UFightComponent.h" />
     <ClInclude Include="Component\UMovementComponent.h" />
+    <ClInclude Include="Csv\Csv.h" />
+    <ClInclude Include="Csv\QuestCsv.h" />
     <ClInclude Include="Engine\Const.h" />
     <ClInclude Include="Engine\Delegate.h" />
     <ClInclude Include="Engine\UActorObject.h" />
@@ -35,11 +40,21 @@
     <ClInclude Include="Role\NPC.h" />
     <ClInclude Include="Role\player.h" />
     <ClInclude Include="Role\role.h" />
+    <ClInclude Include="System\UIManager.h" />
     <ClInclude Include="System\UMessageManager.h" />
+    <ClInclude Include="System\UTalkManager.h" />
+    <ClInclude Include="thing\Heal.h" />
+    <ClInclude Include="thing\Thing.h" />
+    <ClInclude Include="thing\Weapon.h" />
+    <ClInclude Include="UI\Ui.h" />
     <ClInclude Include="UWorld.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component\UMeshComponent.cpp" />
     <ClCompile Include="Component\UMovementComponent.cpp" />
+    <ClCompile Include="Component\UTalkComponent.cpp" />
+    <ClCompile Include="Csv\Csv.cpp" />
+    <ClCompile Include="Csv\QuestCsv.cpp" />
     <ClCompile Include="Engine\UActorObject.cpp" />
     <ClCompile Include="Engine\UComponent.cpp" />
     <ClCompile Include="Engine\UEventDispatcher.cpp" />
@@ -49,7 +64,12 @@
     <ClCompile Include="Engine\Utility.cpp" />
     <ClCompile Include="Engine\UVector.cpp" />
     <ClCompile Include="MudGame.cpp" />
+    <ClCompile Include="System\UIManager.cpp" />
     <ClCompile Include="System\UMessageManager.cpp" />
+    <ClCompile Include="System\UTalkManager.cpp" />
+    <ClCompile Include="thing\Heal.cpp" />
+    <ClCompile Include="thing\Thing.cpp" />
+    <ClCompile Include="thing\Weapon.cpp" />
     <ClCompile Include="UWorld.cpp" />
   </ItemGroup>
   <ItemGroup>

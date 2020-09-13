@@ -9,10 +9,10 @@ void UEventDispatcher::dispatcherEvent(string key, string cmd)
 	}
 }
 
-void UEventDispatcher::executeInput(string cmd)
+void UEventDispatcher::executeInput(string uiName, string cmd)
 {
 	if (cmd.length() == 0)
 		return;
 	string key = cmd.substr(0, 1);
-	dispatcherEvent(key, cmd);
+	dispatcherEvent(uiName + key, cmd.substr(1, cmd.length() - 1 ));
 }

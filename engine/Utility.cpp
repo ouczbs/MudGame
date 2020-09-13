@@ -19,3 +19,57 @@ string parseName(string name, int must_size) {
 	ss.str("");
 	return res;
 }
+
+vector<string>* split(string text, char separated, char domin)
+{
+	vector<string>* res = new vector<string>();
+	int s = 0;;
+	bool isInDomin = false;
+	for (int i = 0, l = text.length(); i < l; i++) {
+		if (text[i] == separated && !isInDomin) {
+			res->push_back(text.substr(s, i - s));
+			s = i + 1;
+		}
+		else if (text[i] == domin) {
+			isInDomin = !isInDomin;
+		}
+	}
+	return res;
+}
+
+vector<string>* split(string text, char separated)
+{
+	vector<string>* res = new vector<string>();
+	int s = 0, l = text.length();
+	for (int i = 0; i < l; i++) {
+		if (text[i] == separated) {
+			res->push_back(text.substr(s, i - s));
+			s = i + 1;
+		}
+	}
+	if (s < l) 
+		res->push_back(text.substr(s, l - s));
+	return res;
+}
+
+int safeStoi(string str)
+{
+	try {
+		return stoi(str);
+	}
+	catch (...) {
+		return 0;
+	}
+}
+
+vector<int>* conv(vector<string>* vs , bool release)
+{
+	vector<int>* vi = new vector<int>();
+	for (auto it = vs->begin(); it != vs->end(); it++) {
+		vi->push_back(safeStoi(*it));
+	}
+	if(release)
+		delete vs;
+	return vi;
+}
+
