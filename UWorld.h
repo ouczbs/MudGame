@@ -18,7 +18,8 @@ public:
 	Role * Player = nullptr;
 
 	string  nextGameMap = "";
-
+	string gameMapName = "";
+	string gameTitle = "";
 	string uiName = "";
 
 	bool Running = false;

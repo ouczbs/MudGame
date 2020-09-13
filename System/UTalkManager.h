@@ -22,4 +22,5 @@ public:
 	void init();
 	void update();
 	void Talking(string key, string cmd);
+	void clear();
 };

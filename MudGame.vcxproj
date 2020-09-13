@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Component\UDeliveryComponent.h" />
     <ClInclude Include="Component\UTalkComponent.h" />
     <ClInclude Include="Component\UMeshComponent.h" />
     <ClInclude Include="Component\UbagComponent.h" />
@@ -50,6 +51,7 @@
     <ClInclude Include="UWorld.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Component\UDeliveryComponent.cpp" />
     <ClCompile Include="Component\UMeshComponent.cpp" />
     <ClCompile Include="Component\UMovementComponent.cpp" />
     <ClCompile Include="Component\UTalkComponent.cpp" />

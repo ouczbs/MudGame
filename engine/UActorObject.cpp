@@ -19,6 +19,8 @@ void UActorObject::removeComponent(UComponent *component) {
 }
 void UActorObject::destroy()
 {
-
+	for (auto it = componentList->begin(); it != componentList->end(); it++) {
+		(*it)->destroy();
+	}
 }
 

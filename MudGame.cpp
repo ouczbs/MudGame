@@ -11,6 +11,7 @@
 #include "Component/UMovementComponent.h"
 #include "Component/UbagComponent.h"
 #include "Component/UMeshComponent.h"
+#include "Component/UDeliveryComponent.h"
 
 Weapon * addWeap(UGameMap* Map , int x , int y , string name , int id) {
 	UActorObject* weap = new UActorObject();
@@ -56,17 +57,54 @@ NPC* addNpc(UGameMap* Map, int x, int y, string name, int id) {
 	Map->addActor(npc);
 	return npc;
 }
+
+UDeliveryComponent* addDelivery(UGameMap* Map, int x, int y, string name, int id , string nextMap) {
+	UActorObject* actor = new UActorObject();
+	actor->setPos(x, y);
+	UDeliveryComponent* delivery = new UDeliveryComponent();
+	delivery->setNextMap(nextMap);
+	actor->addComponent(delivery);
+	actor->setName(name);
+	Map->addActor(actor);
+	return delivery;
+}
+
+Monster* addMonest(UGameMap* Map, int x, int y, string name, int id) {
+	Monster* monster = new Monster();
+	monster->setName(name);
+	monster->setPos(x, y);
+	monster->setId(id);
+	UTalkComponent* comp = new UTalkComponent();
+	monster->addComponent(comp);
+	Map->addActor(monster);
+	return monster;
+}
 void makeMainScene(string key, string cmd) {
 	UGameMap * Map = new UGameMap(10, 10);
-	
+	world->gameMapName = "新手村";
 	Hero* player = addPlayer(Map, 4, 4, "you", 1);
 	addWeap(Map, 4, 4, "dagger", 1);
 	addHeal(Map, 2, 1, "blood", 2);
-
+	addMonest(Map, 4, 7, "monest", 11);
 	addNpc(Map, 7, 7, "npc1", 1);
+	addDelivery(Map, 8, 8, "transport", 1 , "level1");
 	world->GameMap = Map;
 	world->Player = player;
 }
+
+void makeLevel1(string key, string cmd) {
+	UGameMap* Map = new UGameMap(10, 10);
+	world->gameMapName = "  少林寺  ";
+	Hero* player = addPlayer(Map, 4, 4, "you", 1);
+	addWeap(Map, 5, 5, "dagger", 1);
+	addHeal(Map, 2, 1, "blood", 2);
+	addMonest(Map, 4, 1, "monest", 11);
+	addNpc(Map, 4, 7, "npc1", 1);
+	addDelivery(Map, 8, 2, "transport", 1, "main");
+	world->GameMap = Map;
+	world->Player = player;
+}
+
 int main()
 {
 
@@ -74,11 +112,11 @@ int main()
 	world->MessageManager = new UMessageManager();
 	world->TalkManager = new TalkManager();
 	world->TalkManager->init();
-	world->MessageManager->Title.appendLine("---------怪物猎人---------");
-	world->MessageManager->Title.appendLine("新手村");
+	world->gameTitle = "---------怪物猎人---------";
 	world->MessageManager->Tip.appendLine("欢迎进入游戏！！！");
 
 	world->addScene("main", makeMainScene);
+	world->addScene("level1", makeLevel1);
 
 	world->makeScene("main");
 

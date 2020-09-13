@@ -17,7 +17,7 @@ void UMessageManager::showMessage(UMessage* message)
 
 void UMessageManager::showTitle()
 {
-	Title.show();
+	showMessage(&Title);
 }
 
 void UMessageManager::showTip()

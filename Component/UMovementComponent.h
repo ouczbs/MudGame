@@ -11,4 +11,5 @@ public:
 	void MoveRight(string key, string cmd);
 
 	void update();
+	void destroy();
 };

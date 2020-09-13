@@ -59,7 +59,10 @@ void TalkManager::update()
 		return;
 	auto choice = this->quest->choice;
 	if ( choice->size() > 0) {
-		world->MessageManager->Tip.appendLine("输入 q + 数字选择 对话选项！");
+		world->MessageManager->Tip.appendLine("输入 q + 数字选择 对话选项!");
+	}
+	else if(this->quest->next){
+		world->MessageManager->Tip.appendLine("输入 q  进入下一条对话!");
 	}
 
 }
@@ -68,10 +71,27 @@ void TalkManager::Talking(string key, string cmd)
 {
 	if (!this->quest)
 		return;
-	int id = safeStoi(cmd);
 	auto choice = this->quest->choice;
+	if (choice->size() == 0 && this->quest->next ) {
+		Quest* quest = findQuest(this->quest->next);
+		if (quest) {
+			questMap->erase(quest->npcid);
+			questMap->insert(pair<int, Quest*>(quest->npcid, quest));
+		}
+		return;
+	}
+	int id = safeStoi(cmd);
+	
 	if (id == 0 || choice->size() < id)
 		return;
 	Quest* quest = findQuest((*choice)[id - 1]);
-	questMap->insert(pair<int, Quest*>(quest->npcid , quest));
+	if (quest) {
+		questMap->erase(quest->npcid);
+		questMap->insert(pair<int, Quest*>(quest->npcid, quest));
+	}
+}
+
+void TalkManager::clear()
+{
+	quest = nullptr;
 }

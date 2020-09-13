@@ -14,4 +14,5 @@ public:
 	virtual UActorObject* getOwner();
 
 	virtual void update();
+	virtual void destroy();
 };

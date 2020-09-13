@@ -27,6 +27,9 @@ public:
 	string getClass() {
 		return "Bag";
 	};
+	void destroy() {
+		world->EventDispatcher->unBindEvent("2", this, &Bag::diplay);
+	}
 	void init() {
 		world->EventDispatcher->bindEvent("2", this, &Bag::diplay);
 	}

@@ -88,6 +88,13 @@ void UGameMap::render()
 	cout << out.str() << endl;
 }
 
+void UGameMap::destroy()
+{
+	for (auto it = actorList->begin(); it != actorList->end(); it++) {
+		(*it)->destroy();
+	}
+}
+
 bool UGameMap::isEmpty(int x, int y)
 {
 	if (checkMap(x, y))

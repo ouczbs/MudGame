@@ -18,3 +18,8 @@ void UComponent::update()
 {
 
 }
+
+void UComponent::destroy()
+{
+}
+

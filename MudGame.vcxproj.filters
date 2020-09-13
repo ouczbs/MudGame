@@ -102,6 +102,9 @@
     <ClInclude Include="Component\UTalkComponent.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Component\UDeliveryComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\UActorObject.cpp">
@@ -165,6 +168,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Component\UTalkComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\UDeliveryComponent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

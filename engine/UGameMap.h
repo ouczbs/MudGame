@@ -24,4 +24,6 @@ public:
 	virtual bool isEmpty(int x, int y);
 	virtual void render();
 
+	virtual void destroy();
+
 };

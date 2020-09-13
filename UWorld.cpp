@@ -10,10 +10,15 @@ void UWorld::render()
 
 void UWorld::update()
 {
+	
 	if (nextGameMap != "") {
+		GameMap->destroy();
+		TalkManager->clear();
 		makeScene(nextGameMap);
 		nextGameMap = "";
 	}
+	world->MessageManager->Title.appendLine(gameTitle);
+	world->MessageManager->Title.appendLine(gameMapName);
 	if (GameMap != nullptr) {
 		GameMap->update();
 	}
