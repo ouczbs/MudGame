@@ -1,20 +1,17 @@
 #pragma once
 #include "../Csv/QuestCsv.h"
-class TalkManager {
+#include "../Csv/RoleCsv.h"
+class UTalkManager {
 private:
-	QuestCsv* questCsv = nullptr;
-	map<int, Quest*>* allQuestMap = nullptr;
 	map<int, Quest*>* questMap = nullptr;
-
 	Quest* quest = nullptr;
+
+	bool isShowAside = true;
+
 public:
-	TalkManager() {
-		questCsv = new QuestCsv();
-		questCsv->load();
-		allQuestMap = questCsv->makeAllQuestMap();
-		questMap = questCsv->makeQuestMap();
-	};
+	UTalkManager();
 	void visitNpc(int npcid);
+	void unVisitNpc(int npcid);
 	void showTalking(Quest * quest);
 	Quest* findNpc(int npcid);
 	Quest* findQuest(int id);
@@ -22,5 +19,6 @@ public:
 	void init();
 	void update();
 	void Talking(string key, string cmd);
+	void nextTalking(Quest * _quest);
 	void clear();
 };

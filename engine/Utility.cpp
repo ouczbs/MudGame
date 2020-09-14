@@ -20,6 +20,23 @@ string parseName(string name, int must_size) {
 	return res;
 }
 
+bool compareCmd(string str1, string str2)
+{
+	int s1 = str1.size();
+	int s2 = str2.size();
+	if (s1 < s2) {
+		return false;
+	}
+	int a = 0 , b = 0;
+	while (a < s1 && b < s2)
+	{
+		if (str1[a++] != str2[b++]) {
+			return false;
+		}
+	}
+	return true;
+}
+
 vector<string>* split(string text, char separated, char domin)
 {
 	vector<string>* res = new vector<string>();

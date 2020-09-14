@@ -74,9 +74,9 @@ void UGameMap::render()
 		out << c_map_color_head <<  parseName(axis.str() , c_map_left_size) << c_map_color_tail;
 		axis.str("");
 		int * map_col = map[i];
-		UActorObject * actor;
+		UActorObject * actor = nullptr;
 		for (int j = 0; j < col; ++j) {
-			if (map_col[j] != 0 && (actor = searchActor(i, j) , actor != nullptr) ) {
+			if (map_col[j] != 0 && (actor = searchActor(i, j) , actor != nullptr && actor->getName() != "") ) {
 				out << parseName( actor->getName() , c_map_cell_size);
 			}
 			else {

@@ -19,4 +19,7 @@ public:
 	int getIndex(string str);
 	string getCell(int id, int index);
 	string getCell(int id, string str);
+
+	int convIntCell(string name , CellVector_p cells);
+	string convStrCell(string name ,CellVector_p cells);
 };

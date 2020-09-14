@@ -105,6 +105,15 @@
     <ClInclude Include="Component\UDeliveryComponent.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="Csv\RoleCsv.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="System\UCsvManager.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Component\UStoryComponent.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\UActorObject.cpp">
@@ -171,6 +180,15 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="Component\UDeliveryComponent.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Csv\RoleCsv.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="System\UCsvManager.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Component\UStoryComponent.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

@@ -50,3 +50,22 @@ string Csv::getCell(int id, string str)
     int index = getIndex(str);
     return getCell(id, index);
 }
+
+int Csv::convIntCell(string name, CellVector_p cells)
+{
+    int idx = getIndex(name);
+    if (idx != -1) {
+        return safeStoi((*cells)[idx]);
+    }
+    return 0;
+}
+
+string Csv::convStrCell(string name, CellVector_p cells)
+{
+    int idx = getIndex(name);
+    if (idx != -1) {
+        return (*cells)[idx];
+    }
+    return "";
+}
+

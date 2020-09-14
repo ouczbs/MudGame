@@ -7,6 +7,7 @@ public:
 		defence_value = ndefence_value;
 		blood_value = nblood_value;
 	}*/
+	string displayName;
 private:
 	int attack_value = 0;
 	int defence_value = 0;

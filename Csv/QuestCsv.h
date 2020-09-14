@@ -6,9 +6,11 @@ class Quest {
 public:
 	int id = 0;
 	int next = 0;
-	int cond = 0;
 	int npcid = 0;
-	string text;
+	string text = "";
+	string before = "";
+	string after = "";
+	string name = "";
 	vector<int> * choice = nullptr;
 };
 class QuestCsv : public Csv {

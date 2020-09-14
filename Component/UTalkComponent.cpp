@@ -13,4 +13,7 @@ void UTalkComponent::update()
 	if (abs(owner_pos.x - player_pos.x) < 2 && abs(owner_pos.y - player_pos.y) < 2) {
 		world->TalkManager->visitNpc(getOwner()->getId());
 	}
+	else {
+		world->TalkManager->unVisitNpc(getOwner()->getId());
+	}
 }

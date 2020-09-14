@@ -2,20 +2,36 @@
 #include "UTalkManager.h"
 #include "../UWorld.h"
 #include "../Engine/Utility.h"
-void TalkManager::visitNpc(int npcid)
+#include "../Engine/const.h"
+UTalkManager::UTalkManager()
 {
+	questMap = world->CsvManager->questCsv->makeQuestMap();
+}
+void UTalkManager::visitNpc(int npcid)
+{
+	if (isShowAside && npcid != c_aside_id || !isShowAside && npcid == c_aside_id)
+		return;
 	Quest* quest = findNpc(npcid);
 	if (quest == nullptr)
 		return;
 	showTalking(quest);
 }
 
-void TalkManager::showTalking(Quest* quest)
+void UTalkManager::unVisitNpc(int npcid)
 {
-	if (quest == nullptr)
+	if (quest && quest->npcid == npcid)
+		quest = nullptr;
+}
+
+void UTalkManager::showTalking(Quest* quest)
+{
+	auto player = world->Player;
+	if (!quest || !player)
 		return;
 	this->quest = quest;
-	world->MessageManager->Info.appendLine(quest->text);
+	if(quest->before != "")
+		world->MessageManager->Info.appendLine(player->displayName + ": "  + quest->before);
+	world->MessageManager->Info.appendLine(quest->name + ": " + quest->text);
 	auto choice = quest->choice;
 	if (choice->size() == 0)
 		return;
@@ -27,34 +43,36 @@ void TalkManager::showTalking(Quest* quest)
 	}
 }
 
-Quest* TalkManager::findNpc(int npcid)
+Quest* UTalkManager::findNpc(int npcid)
 {
 	auto it = questMap->find(npcid);
 	if (it != questMap->end()) {
 		return it->second;
 	}
-	for (auto it = allQuestMap->begin(); it != allQuestMap->end(); it++) {
-		if (it->second->npcid == npcid)
-			return it->second;
-	}
-	return nullptr;
+	return world->CsvManager->findCQuestByNpcId(npcid);
 }
-Quest* TalkManager::findQuest(int id)
+Quest* UTalkManager::findQuest(int id)
 {
-	auto it = allQuestMap->find(id);
-	if (it != allQuestMap->end()) {
-		return it->second;
-	}
-	return nullptr;
+	return world->CsvManager->findCQuest(id);
 }
 
-void TalkManager::init()
+void UTalkManager::init()
 {
-	world->EventDispatcher->bindEvent("q" , this , &TalkManager::Talking);
+	world->EventDispatcher->bindEvent("q" , this , &UTalkManager::Talking);
 }
 
-void TalkManager::update()
+void UTalkManager::update()
 {
+	if (questMap->size() > 0) {
+		for (auto it = questMap->begin(); it != questMap->end(); it++) {
+			Quest * _quest = it->second;
+			if (_quest->npcid != c_aside_id) {
+				CRole* cr = world->CsvManager->findCRole(_quest->npcid);
+				if(cr)
+					world->MessageManager->Tip.appendLine(cr->showname + " : " + cr->name + " , id = " + to_string(cr->id) + " 可交互 ");
+			}
+		}
+	}
 	if (!this->quest)
 		return;
 	auto choice = this->quest->choice;
@@ -62,36 +80,50 @@ void TalkManager::update()
 		world->MessageManager->Tip.appendLine("输入 q + 数字选择 对话选项!");
 	}
 	else if(this->quest->next){
-		world->MessageManager->Tip.appendLine("输入 q  进入下一条对话!");
+		Quest* nextQuest = findQuest(this->quest->next);
+		if(nextQuest != nullptr && nextQuest->npcid == this->quest->npcid)
+			world->MessageManager->Tip.appendLine("输入 q  进入下一条对话!");
 	}
 
 }
 
-void TalkManager::Talking(string key, string cmd)
+void UTalkManager::Talking(string key, string cmd)
 {
-	if (!this->quest)
+	auto player = world->Player;
+	if (!this->quest || !player)
 		return;
+	Quest* quest = this->quest;
+	if (quest->after != "")
+		world->MessageManager->Info.appendLine(player->displayName + ": " + quest->after);
 	auto choice = this->quest->choice;
 	if (choice->size() == 0 && this->quest->next ) {
-		Quest* quest = findQuest(this->quest->next);
-		if (quest) {
-			questMap->erase(quest->npcid);
-			questMap->insert(pair<int, Quest*>(quest->npcid, quest));
-		}
+		Quest* nextQuest = findQuest(this->quest->next);
+		nextTalking(nextQuest);
 		return;
 	}
-	int id = safeStoi(cmd);
-	
-	if (id == 0 || choice->size() < id)
+	int id = safeStoi(cmd) - 1;
+	if (id < 0 || choice->size() <= id)
 		return;
-	Quest* quest = findQuest((*choice)[id - 1]);
-	if (quest) {
-		questMap->erase(quest->npcid);
-		questMap->insert(pair<int, Quest*>(quest->npcid, quest));
+	Quest* nextQuest = findQuest((*choice)[id]);
+	if(nextQuest)
+		nextTalking(findQuest(nextQuest->next));
+}
+
+void UTalkManager::nextTalking(Quest* _quest)
+{
+	if (_quest) {
+		if ( _quest->npcid == c_aside_id) {
+			isShowAside = true;
+		}
+		else {
+			isShowAside = false;
+		}
+		questMap->erase(_quest->npcid);
+		questMap->insert(pair<int, Quest*>(_quest->npcid, _quest));
 	}
 }
 
-void TalkManager::clear()
+void UTalkManager::clear()
 {
 	quest = nullptr;
 }
